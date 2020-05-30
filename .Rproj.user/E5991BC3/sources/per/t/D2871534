@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589302013273.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2901895285",
+    "id" : "D2871534",
+    "lastKnownWriteTime" : 1558724496,
+    "last_content_update" : 1558724496,
+    "path" : "C:/Users/Home/Desktop/Bio Stat/Lab 1/Lab1/Lab1 code.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "56,134",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

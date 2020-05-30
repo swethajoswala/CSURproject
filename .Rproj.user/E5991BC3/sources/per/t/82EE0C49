@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589299129852.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1906079678",
+    "id" : "82EE0C49",
+    "lastKnownWriteTime" : 1559528098,
+    "last_content_update" : 1559528098,
+    "path" : "C:/Users/Home/Desktop/Bio Stat/Lab 2/Lab2 code.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "127,18",
+        "scrollLine" : "117"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

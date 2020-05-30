@@ -1,0 +1,128 @@
+#BioStats 540 Lab 2 Measures of Central Tendency 
+#Created by 2623068 on May 29, 2019
+rm(list=ls(all=TRUE)) 
+#import dataset<select text base first option and uploaded csv file of clasdataclean, changed name to "Data". can also open excel directly
+Data <- read.csv("C:/Users/Swetha/Desktop/Bio Stat/Lab2/ClassDataClean.csv")
+attach(Data)
+?mean
+#na.rm=T means Yes, remove the missing values
+#can include na.rm=T with any function like mean, sd , CA etc.
+mean(Height, na.rm=T)
+mean(Age, na.rm=T)
+# listing all the names of columns
+names(Data)
+#to calculate coefficient of variation: divide SD by mean
+sd(Length, na.rm=T)/mean(Length, na.rm=T)
+#writing my own function to shorten the CV
+myCV<-function(x)(sd(x,na.rm=T)*100)/mean(x,na.rm=T)
+myCV(Height)
+myCV(ShoeSize)
+#for finding the package that has all the prewritten functions
+??CV
+??coefficient
+#after installing the raster library, load it using library function. Every time you open R, you load the raster library. no need to install it again and again
+library(raster)
+#comparing myCV function that I created and CV function from raster package
+cv(Length,na.rm=TRUE)
+myCV(Length)
+cv(Height, na.rm=T)
+myCV(Height)
+#the cv function compared for Height but not Length so I went back up to add ,na.rm=T for mean within my written CV function.it worked.
+myCV(Length)
+cv(Length, na.rm=T)
+#learning how to cite R and the packages in R
+citation()
+citation("raster")
+#calculating central tendencies
+View(Data)
+names(Data)
+min(Height)
+max(Height)
+mean(Height, na.rm=T)
+median(Height, na.rm=T)
+sd(Height, na.rm=T)
+cv(Height, na.rm=T)
+range(Height, na.rm=T)
+#writing my function for range to display the width instead of just min and max values
+myRange<-function(x)max(x,na.rm=T)-min(x,na.rm=T)
+myRange(Height)
+#making boxplots
+boxplot(Height, col="yellow", ylab="Height (cm)", xlab="frequency")
+#including gender function in box plots - two different ways to do it
+boxplot(Height~Gender, col="yellow", ylab="Heights (cm)", ylim=c(55,75),main="Boxplot of Heights")
+boxplot(FemaleHeight, MaleHeight, col="yellow", ylab="Heights (cm)", ylim=c(55,75),main="Boxplot of Heights")
+library(raster)
+summary(Height)
+summary(Data)
+tapply(Height,Gender,mean, na.rm=T)
+MeanbyGender<-tapply(Length,Gender,mean,na.rm=T)
+sd(Height)
+sd(Length)
+summary(Length)
+myRange(Length)
+variance(Length)
+raster::cv(Length)
+SDbyGender<-tapply(Length,Gender,sd,na.rm=T)
+#making boxplot for foot length
+boxplot(Length~Gender, col="yellow", ylab="Footlengths (cm)", ylim=c(8,40),main="Boxplot of footlengths")
+summary(Data, na.rm=T)
+CVbyGender<-tapply(Length,Gender,cv,na.rm=T)
+MeanbyGender
+SDbyGender
+CVbyGender
+#calculating IQR for foot length by Gender
+IQRbyGender<-tapply(Length,Gender,IQR,na.rm=T)
+IQRbyGender
+#creating subsets for foot length by gender
+MaleLength<-subset(Length,Gender=="Male")
+MaleLength
+FemaleLength<-subset(Length, Gender=="Female")
+-tapply(Length,Gender,IQR,na.rm=T)*1.5
+IQR(MaleLength, na.rm=T)
+IQR(FemaleLength, na.rm=T)
+IQR(MaleLength, na.rm=T)*1.5
+IQR(FemaleLength, na.rm=T)*1.5
+#finding 1st and 3rd quartiles
+quantile(MaleLength, na.rm=T)
+quantile(FemaleLength, na.rm=T)
+#added 4.725 (IQR male*1.5) and 4.05 to 3rd quartiles of males and females and substracted those amounts from 1st quartiles for both.
+#finding lower cutoffs
+LowerMalecutoff<-25.45-4.725
+LowerFemalecutoff<-23-4.05
+LowerMalecutoff
+LowerFemalecutoff
+#finding uppercutoff
+UpperMalecutoff<-28.60+4.725
+UpperFemalecutoff<-25.70+4.05
+UpperMalecutoff
+UpperFemalecutoff
+#smaller or greater 
+MaleLength>UpperMalecutoff
+MaleLength<LowerMalecutoff
+FemaleLength>UpperFemalecutoff
+FemaleLength<LowerFemalecutoff
+sum(MaleLength>UpperMalecutoff)
+MaleLength
+FemaleLength
+#finding extreme outliers
+IQR(MaleLength, na.rm=T)*3
+IQR(FemaleLength, na.rm=T)*3
+LowerMalecutoff<-25.45-9.45
+LowerFemalecutoff<-23-8.1
+UpperMalecutoff<-28.60+9.45
+UpperFemalecutoff<-25.70+8.1
+LowerMalecutoff
+LowerFemalecutoff
+UpperMalecutoff
+UpperFemalecutoff
+#smaller or greater 
+MaleLength>UpperMalecutoff
+MaleLength<LowerMalecutoff
+FemaleLength>UpperFemalecutoff
+FemaleLength<LowerFemalecutoff
+#Calculating outliers
+boxplot.stats(FemaleLength)$out
+boxplot.stats(MaleLength)$out
+#citations
+citation()
+citation("raster")

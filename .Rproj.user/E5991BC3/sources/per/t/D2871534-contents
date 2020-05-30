@@ -1,0 +1,64 @@
+#Biostats 540 Lab I Introduction to R
+#Created by 2623068 on May 22, 2019
+#loading the class dataset
+classData<-read.csv("ClassData.csv")
+classData<-read.csv("ClassData.csv")
+View(classData)
+#using head function to see first 10 lines
+head(classData)
+dim(classData)
+#dim function worked. all rows and columns made it to R
+names(classData)
+classData$Gender
+#attach function to attach dataset
+attach(classData)
+is.numeric(vector_name)
+is.numeric(Gender)
+is.numeric(Height)
+is.factor(Duration)
+str(classData)
+
+#Problem 2
+str(Gender)
+str(Height)
+str(Footlength)
+str(Shoesize)
+str(Age)
+str(Distance)
+str(Duration)
+str(Siblings)
+str(Born)
+str(Coins_in_purse)
+str(Music)
+str(Drink)
+str(Nuclear_opinion)
+str(Biology)
+help
+?divide
+??divide
+#problem3
+#Problem 3
+#adding new column and defining it
+classData$footDividedByShoe<-Footlength/Shoesize
+View (footDividedByShoe)
+View (classData)
+View (footDividedByShoe)
+classData$footDividedByShoe
+attach(classData)
+classData$footDividedByShoe
+str (footDividedByShoe)
+plot(classData$Drink)
+#plotted drink graph above
+plot(classData$Drink, col="Purple")
+plot(classData$Drink, col="Purple", ylab="NumberofDrinks")
+plot(classData$Drink, col="Purple", ylab="NumberofResponses")
+plot(classData$Drink, col="3", ylab="NumberofResponses", main="Hmmm...What Do I Want To Drink?", ylim=c(0,15))
+#plotting mosaic plot
+plot(classData$Drink,Gender, col= c(4,3), xlab="Cola Preference", ylab="Gender", main="Hmmm...What Do I Want To Drink?", ylim=c(0,15))
+#plotting histogram
+hist(classData$Height, col="Purple", breaks=25, xlab="Height in centimeters", xlim=c(50,80), ylim=c(0,7), main="Histogram of ClassData Heights")
+#plotting scatterplot
+plot(Height, Footlength, col="Blue", main="Height & Footlength Relationship plot", pch=9)
+?par
+#plotting scatter plot with aspect, type and pch features
+plot(Height, Footlength, col="Blue", main="Height & Footlength Relationship plot", pch=7, type="p", asp=1)
